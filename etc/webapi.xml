@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+    <route method="GET" url="/V1/apiextension/coreconfig">
+        <service class="Headle\ApiExtension\Api\ConfigApiInterface" method="getcoreConfig"/>
+        <resources>
+            <resource ref="Headle_ApiExtension::Customernetpricing_view"/>
+        </resources>
+    </route>
+    <route method="GET" url="/V1/apiextension/cutomerpricing">
+        <service class="Headle\ApiExtension\Api\CustomernetpricingApiInterface" method="getCutomerprincing"/>
+        <resources>
+            <resource ref="Headle_ApiExtension::Customernetpricing_view"/>
+        </resources>
+    </route>
+    <route url="/V1/productalertstock/add/:productId" method="POST">
+        <service class="Headle\ApiExtension\Api\ProductalertstockManagementInterface" method="add"/>
+        <resources>
+            <resource ref="Magento_Catalog" />
+        </resources>
+        <data>
+            <parameter name="customer_id" force="true">%customer_id%</parameter>
+        </data>
+    </route>
+    <route url="/V1/productalertstock/delete/:productId" method="POST">
+        <service class="Headle\ApiExtension\Api\ProductalertstockManagementInterface" method="delete"/>
+        <resources>
+            <resource ref="Magento_Catalog" />
+        </resources>
+        <data>
+            <parameter name="customer_id" force="true">%customer_id%</parameter>
+        </data>
+    </route>
+    <route url="/V1/newsletter/" method="POST">
+        <service class="Headle\ApiExtension\Api\NewsLetterSubscriptionInterface" method="postNewsLetter"/>
+        <resources>
+            <resource ref="Magento_Customer"/>
+        </resources>
+        <data>
+            <parameter name="customer_id" force="false">%customer_id%</parameter>
+
+        </data>
+    </route>
+</routes>
