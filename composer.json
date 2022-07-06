@@ -10,6 +10,14 @@
   "license": [
     "Proprietary"
   ],
+  "authors": [
+    {
+      "name": "Headle",
+      "email": "richard@headle.nl",
+      "homepage": "https://www.headle.nl",
+      "role": "Leader"
+    }
+  ],
   "autoload": {
     "files": [
       "registration.php"
