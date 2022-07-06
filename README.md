@@ -1,1 +1,2 @@
-# magento_extension
+# Installation
+composer require headle/magento-api-extension:*
